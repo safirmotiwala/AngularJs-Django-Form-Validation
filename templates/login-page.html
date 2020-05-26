@@ -32,7 +32,7 @@
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="material-icons">perm_identity</i>
+                        <i class="material-icons" style="color: red;">perm_identity</i>
                       </span>
                     </div>
                     <input type="text" class="form-control" placeholder="Username...">
@@ -42,7 +42,7 @@
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
+                        <i class="material-icons" style="color: red;">lock_outline</i>
                       </span>
                     </div>
                     <input type="password" class="form-control" placeholder="Password...">
@@ -50,13 +50,14 @@
                 </span>
               </div>
               <div class="card-footer justify-content-center">
-                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Login</a>
+                <a href="#pablo" class="btn btn-rose btn-link btn-lg"><b>Login</b></a>
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
+  </div>
     <footer class="footer">
       <div class="container">
         
@@ -65,12 +66,22 @@
           <script>
             document.write(new Date().getFullYear())
           </script>, made by
-          <a href="https://www.web-tech.com" target="_blank">WebTech Solution</a>
+          <a href="https://www.web-tech.com" target="_blank" style="color: cyan;">WebTech Solution</a>
         </div>
       </div>
     </footer>
   </div>
   {% include 'scripts.html' %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    function disableBack() {window.history.forward()}
+
+    window.onload = disableBack();
+    window.onpageshow = function (evt) {if (evt.persisted) disableBack()}
+});
+</script>
 </body>
 
 </html>

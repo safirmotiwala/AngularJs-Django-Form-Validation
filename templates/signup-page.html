@@ -4,6 +4,7 @@
 
 <head>
   {% include 'links.html' %}
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body class="signup-page sidebar-collapse" style="overflow-x: hidden;">
@@ -17,96 +18,151 @@
       <div class="row">
         <div class="col-md-12 ml-auto mr-auto">
           <div class="card card-signup">
-            <h2 class="card-title text-center">Register</h2>
+            <h2 class="card-title text-center" style="color: blue;">Register</h2>
             <div class="card-body">
               <div class="row">
+              	
                 <div class="col-md-6 ml-auto">
                   
-                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style="margin-top: 80px;">
+                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style="margin-top: 160px;">
+
                  
                 </div>
-                <div class="col-md-6 mr-auto">
+                <div class="col-md-4 mr-auto">
                   
-                  <form class="form" method="" action="">
+                  <form class="form" method="post" action="/register_user" name="register" ng-app="">
+                  	{% csrf_token %}
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">face</i>
+                            <i class="material-icons" style="color: blue;">face</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="First Name...">
+                        <input type="text" class="form-control" placeholder="First Name..." name="fname" id="fname" ng-model="fname" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.fname.$dirty && register.fname.$invalid">
+						<div ng-show="register.fname.$error.required">First name is required.</div>
+					</div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">home</i>
+                            <i class="material-icons" style="color: blue;">account_circle</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Last Name...">
+                        <input type="text" class="form-control" placeholder="Last Name..." name="lname" id="lname" ng-model="lname" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.lname.$dirty && register.lname.$invalid">
+						<div ng-show="register.lname.$error.required">Last name is required.</div>
+					</div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">cake</i>
+                            <i class="material-icons" style="color: blue;">cake</i>
                           </span>
                         </div>
-                        <input type="date" class="form-control" placeholder="Date of Birth...">
+                        <input type="date" class="form-control" placeholder="Date of Birth..." name="dob" id="dob" ng-model="dob" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.dob.$dirty && register.dob.$invalid">
+						<div ng-show="register.dob.$error.required">Date of Birth is required.</div>
+					</div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">phone</i>
+                            <i class="material-icons" style="color: blue;">phone</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Mobile No...">
+                        <input type="text" class="form-control" placeholder="Mobile No..." name="mobno" id="mobno" ng-model="mobno" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.mobno.$dirty && register.mobno.$invalid">
+						<div ng-show="register.mobno.$error.required">Mobile No is required.</div></div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">perm_identity</i>
+                            <i class="material-icons" style="color: blue;">home</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="User Name...">
+                        <input type="text" class="form-control" placeholder="Address..." name="address" id="address" ng-model="address" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.address.$dirty && register.address.$invalid">
+						<div ng-show="register.address.$error.required">Address is required.</div></div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">mail</i>
+                            <i class="material-icons" style="color: blue;">perm_identity</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Email...">
+                        <input type="text" class="form-control" placeholder="Username..." name="username" id="username" ng-model="username" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.username.$dirty && register.username.$invalid">
+						<div ng-show="register.username.$error.required">Username is required.</div></div>
                     </div>
+
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">lock_outline</i>
+                            <i class="material-icons" style="color: blue;">mail</i>
                           </span>
                         </div>
-                        <input type="password" placeholder="Password..." class="form-control" />
+                        <input type="text" class="form-control" placeholder="Email..." name="email" id="email" ng-model="email" required>
                       </div>
+                      <div style="color:red; text-align: center;" ng-show="register.email.$dirty && register.email.$invalid">
+						<div ng-show="register.email.$error.required">Email is required.</div>
+					</div>
                     </div>
-                    
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons" style="color: blue;">lock_outline</i>
+                          </span>
+                        </div>
+                        <input type="password" placeholder="Password..." class="form-control" name="password1" id="password1" ng-model="password1" required>
+                      </div>
+                      <div style="color:red; text-align: center;" ng-show="register.password1.$dirty && register.password1.$invalid">
+						<div ng-show="register.password1.$error.required">Password is required.</div></div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons" style="color: blue;">lock_outline</i>
+                          </span>
+                        </div>
+                        <input type="password" placeholder="Confirm Password..." class="form-control" name="password2" id="password2" ng-model="password2" required>
+                      </div>
+                      <div style="color:red; text-align: center;" ng-show="register.password2.$dirty && register.password2.$invalid">
+						<div ng-show="register.password2.$error.required">Password is required.</div>
+
+					</div>
+					<div style="color:red; text-align: center;" ng-show="register.password2.$dirty && password1!=password2">Both Passwords do not match</div>
+                    </div>
+
                     <div class="text-center">
-                      <a href="#pablo" class="btn btn-danger btn-round">Register</a>
+                    	Already have an account? <a href="/login/" style="color: red;"><b>Login here</b></a>
                     </div>
+                    <div class="text-center">
+                    	<button class="btn btn-success btn-round" type="submit" name="submit" value="submit" ng-disabled="register.fname.$invalid || register.lname.$invalid || register.dob.$invalid || register.mobno.$invalid || register.address.$invalid || register.email.$invalid || register.password1.$invalid || register.password2.$invalid || password1!=password2 ">Register</button>
+                    </div>
+
                   </form>
                 </div>
               </div>
@@ -123,11 +179,129 @@
           <script>
             document.write(new Date().getFullYear())
           </script>, made by
-          <a href="https://www.web-tech.com" target="_blank">WebTech Solution</a>
+          <a href="https://www.web-tech.com" target="_blank" style="color: cyan;">WebTech Solution</a>
         </div>
       </div>
     </footer>
   </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    function disableBack() {window.history.forward()}
+
+    window.onload = disableBack();
+    window.onpageshow = function (evt) {if (evt.persisted) disableBack()}
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript">
+	$('#fname').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+
+	$('#lname').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+
+	$('#mobno').on('keypress', function (event) {
+    var regex = new RegExp("^[0-9]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+	$('#address').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z0-9.,/_-]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+	$('#username').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z0-9.,_]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+	$('#email').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z0-9.,@_-]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+	$(document).ready(function(){
+   $('#fname').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#lname').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#mobno').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#address').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#username').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#email').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#password1').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+	$(document).ready(function(){
+   $('#password2').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+</script>
   {% include 'scripts.html' %}
 </body>
 

@@ -1,0 +1,58 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'links.html' %}
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+<body class="signup-page sidebar-collapse" style="overflow-x: hidden;" >
+  
+  <div class="page-header header-filter"  style="background-image: url('/static/assets/img/pic1.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ml-auto mr-auto">
+          <div class="card card-signup">
+            <h2 class="card-title text-center" style="color: blue;">Register</h2>
+            <h3 class="card-title text-center" style="color: green;">Registered Successfully. To Login, <a href="/login/" style="color: red;">Click here</a></h3>
+            <div class="card-body">
+              <div class="row">
+
+                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style=" margin-right: auto; margin-left: auto;">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <footer class="footer">
+      <div class="container">
+        
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, made by
+          <a href="https://www.web-tech.com" target="_blank" style="color: cyan;">WebTech Solution</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    function disableBack() {window.history.forward()}
+
+    window.onload = disableBack();
+    window.onpageshow = function (evt) {if (evt.persisted) disableBack()}
+});
+</script>
+
+  {% include 'scripts.html' %}
+</body>
+
+</html>
