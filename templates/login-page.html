@@ -4,6 +4,7 @@
 
 <head>
   {% include 'links.html' %}
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body class="login-page sidebar-collapse" style="overflow-x: hidden;">
@@ -19,38 +20,48 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-          <form class="form" method="" action="">
+          <form class="form" method="post" action="/login/" name="login" ng-app="">
+            {% csrf_token %}
             <div class="card card-login card-hidden">
               <div class="card-header card-header-danger text-center">
                 <h4 class="card-title">Login</h4>
+
                 
               </div>
               <div class="card-body ">
-                
+                <h3 style="color: red; text-align: center; font-size: 20px;"><b>{{ message1 }}</b></h3>
                 
                 <span class="bmd-form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="material-icons" style="color: red;">perm_identity</i>
+                        <i class="material-icons" style="color: green;">perm_identity</i>
                       </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username...">
+                    <input type="text" class="form-control" placeholder="Username..." name="username" id="username" ng-model="username" required>
+
                   </div>
+                  <div style="color:red; text-align: center;" ng-show="login.username.$dirty && login.username.$invalid">
+            <div ng-show="login.username.$error.required">Username is required.</div>
+          </div>
                 </span>
                 <span class="bmd-form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="material-icons" style="color: red;">lock_outline</i>
+                        <i class="material-icons" style="color: green;">lock_outline</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password...">
+                    <input type="password" class="form-control" placeholder="Password..." name="password" id="password" ng-model="password" required>
                   </div>
+                  <div style="color:red; text-align: center;" ng-show="login.password.$dirty && login.password.$invalid">
+            <div ng-show="login.password.$error.required">Password is required.</div>
+          </div>
                 </span>
+
               </div>
               <div class="card-footer justify-content-center">
-                <a href="#pablo" class="btn btn-rose btn-link btn-lg"><b>Login</b></a>
+                <button type="submit" name="login" class="btn btn-success btn-link btn-lg" ng-disabled="login.username.$invalid || login.password.$invalid"><b>Login</b></button>
               </div>
             </div>
           </form>
@@ -66,7 +77,7 @@
           <script>
             document.write(new Date().getFullYear())
           </script>, made by
-          <a href="https://www.web-tech.com" target="_blank" style="color: cyan;">WebTech Solution</a>
+          <a href="https://www.web-tech.in" target="_blank" style="color: cyan;">WebTech Solution</a>
         </div>
       </div>
     </footer>
@@ -80,6 +91,30 @@
 
     window.onload = disableBack();
     window.onpageshow = function (evt) {if (evt.persisted) disableBack()}
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript">
+  $('#username').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z0-9.,_]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+    $(document).ready(function(){
+   $('#username').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+      $(document).ready(function(){
+   $('#password').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
 });
 </script>
 </body>
