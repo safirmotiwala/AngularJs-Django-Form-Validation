@@ -1,0 +1,76 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'links.html' %}
+</head>
+
+<body class="login-page sidebar-collapse" style="overflow-x: hidden;">
+
+  <div class="page-header header-filter" style="background-image: url('/static/assets/img/pic1.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12" style="text-align: center;">
+        <a class="navbar-brand info-title" href="index.html" style="color: black; font-size: 35px;">
+          <img src="/static/assets/img/fav_logo.png" height = "160px" width="150px">
+          </a>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+          <form class="form" method="" action="">
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-danger text-center">
+                <h4 class="card-title">Login</h4>
+                
+              </div>
+              <div class="card-body ">
+                
+                
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">perm_identity</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username...">
+                  </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Password...">
+                  </div>
+                </span>
+              </div>
+              <div class="card-footer justify-content-center">
+                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Login</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, made by
+          <a href="https://www.web-tech.com" target="_blank">WebTech Solution</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  {% include 'scripts.html' %}
+</body>
+
+</html>
