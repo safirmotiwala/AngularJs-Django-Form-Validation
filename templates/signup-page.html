@@ -4,27 +4,44 @@
 
 <head>
   {% include 'links.html' %}
+
+  <style>
+    @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+  #logo {
+    height: 295px;
+    width: 280px;
+    margin-top: 0px;
+    
+  }
+  #logo1{
+    text-align: center;
+    margin-top: 0;
+  }
+}
+#reg {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body class="signup-page sidebar-collapse" style="overflow-x: hidden;">
-  
-      
-      
-   
   
   <div class="page-header header-filter"  style="background-image: url('/static/assets/img/pic1.jpg'); background-size: cover; background-position: top center;">
     <div class="container">
       <div class="row">
         <div class="col-md-12 ml-auto mr-auto">
           <div class="card card-signup">
-            <h2 class="card-title text-center" style="color: blue;">Register</h2>
+            <h2 class="card-title text-center" style="color: blue;" id="reg">Register</h2>
             <div class="card-body">
               <div class="row">
               	
-                <div class="col-md-6 ml-auto">
+                <div class="col-md-6 ml-auto" id="logo1">
                   
-                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style="margin-top: 160px;">
+                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style="margin-top: 0;" id="logo">
 
                  
                 </div>

@@ -5,7 +5,22 @@
 <head>
   {% include 'links.html' %}
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <style>
+    @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+  #logo {
+    height: 295px;
+    width: 280px;
+    margin-top: 0px;
+    
+  }
+  #logo1{
+    text-align: center;
+    margin-top: 0;
+  }
+}
 
+  </style>
 </head>
 
 <body class="signup-page sidebar-collapse" style="overflow-x: hidden;" >
@@ -18,9 +33,9 @@
             <h2 class="card-title text-center" style="color: blue;">Register</h2>
             <h3 class="card-title text-center" style="color: green;">Registered Successfully. To Login, <a href="/login/" style="color: red;">Click here</a></h3>
             <div class="card-body">
-              <div class="row">
+              <div class="row" id="logo1">
 
-                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style=" margin-right: auto; margin-left: auto;">
+                  <img src="/static/assets/img/fav_logo.png" height = "400px" width="380px" style=" margin-right: auto; margin-left: auto;" id="logo">
 
                 </div>
               </div>
